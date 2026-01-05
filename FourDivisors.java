@@ -15,7 +15,7 @@ public class FourDivisors {
             }
             
             FourDivisors fd = new FourDivisors();
-            int res = fd.sumOfFourDivisors(arr)
+            int res = fd.sumOfFourDivisors(arr);
             
             System.out.println("Result is: " + res);
         }
