@@ -7,14 +7,11 @@ class TreeNode {
 
     TreeNode(int val) {
         this.val = val;
-        this.left = null;
-        this.right = null;
     }
 }
 
 public class MaxLevelSumBinaryTree {
 
-   
     public static int maxLevelSum(TreeNode root) {
         if (root == null) return 0;
 
@@ -23,57 +20,56 @@ public class MaxLevelSumBinaryTree {
 
         int maxSum = Integer.MIN_VALUE;
         int maxLevel = 1;
-        int currentLevel = 1;
+        int level = 1;
 
         while (!q.isEmpty()) {
-            int levelSize = q.size();
-            int levelSum = 0;
+            int size = q.size();
+            int sum = 0;
 
-            for (int i = 0; i < levelSize; i++) {
+            for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
-                levelSum += node.val;
+                sum += node.val;
 
                 if (node.left != null) q.add(node.left);
                 if (node.right != null) q.add(node.right);
             }
 
-            if (levelSum > maxSum) {
-                maxSum = levelSum;
-                maxLevel = currentLevel;
+            if (sum > maxSum) {
+                maxSum = sum;
+                maxLevel = level;
             }
 
-            currentLevel++;
+            level++;
         }
 
         return maxLevel;
     }
 
-    // Function to build tree from user input
     public static TreeNode buildTree(Scanner sc) {
         System.out.print("Enter root value: ");
-        int rootVal = sc.nextInt();
+        int val = sc.nextInt();
 
-        if (rootVal == -1) return null;
+        if (val == -1) return null;
 
-        TreeNode root = new TreeNode(rootVal);
+        TreeNode root = new TreeNode(val);
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
 
         while (!q.isEmpty()) {
-            TreeNode current = q.poll();
+            TreeNode curr = q.poll();
 
-            System.out.print("Enter left child of " + current.val + ": ");
-            int leftVal = sc.nextInt();
-            if (leftVal != -1) {
-                current.left = new TreeNode(leftVal);
-                q.add(current.left);
+            System.out.print("Enter left child of " + curr.val + ": ");
+            int left = sc.nextInt();
+            if (left != -1) {
+                curr.left = new TreeNode(left);
+                q.add(curr.left);
             }
 
-            System.out.print("Enter right child of " + current.val + ": ");
-            int rightVal = sc.nextInt();
-            if (rightVal != -1) {
-                current.right = new TreeNode(rightVal);
-                q.add(current.right);
+            System.out.print("Enter right child of " + curr.val + ": ");
+            int right = sc.nextInt();
+            if (right != -1) {
+                curr.right = new TreeNode(right);
+                q.add(curr.right);
             }
         }
 
@@ -84,8 +80,8 @@ public class MaxLevelSumBinaryTree {
         Scanner sc = new Scanner(System.in);
 
         TreeNode root = buildTree(sc);
-
         int result = maxLevelSum(root);
+
         System.out.println("Level with maximum sum is: " + result);
 
         sc.close();
