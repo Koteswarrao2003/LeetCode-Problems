@@ -19,7 +19,7 @@ public class MaxLevelSumBinaryTree {
         q.add(root);
 
         int maxSum = Integer.MIN_VALUE;
-        int maxLevel = 1
+        int maxLevel = 1;
         int level = 1;
 
         while (!q.isEmpty()) {
