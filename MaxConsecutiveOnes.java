@@ -15,7 +15,7 @@ public class MaxConsecutiveOnes{
             if(nums[i]==1){
                 count=count+1;
                 if(count>temp)
-                    temp=count
+                    temp=count;
             }else{
                 count=0;
             }
