@@ -7,7 +7,7 @@ public class ConcatenationOfArray {
             System.out.print("Enter size of the array: ");
             int n = sc.nextInt();
             
-            int[] nums = new int[n]
+            int[] nums = new int[n];
             
             System.out.println("Enter array elements:");
             for (int i = 0; i < n; i++) {
