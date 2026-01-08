@@ -19,7 +19,7 @@ public class ConcatenationOfArray {
             
             System.out.print("Concatenated array: ");
             for (int val : result) {
-                System.out.print(val + " ");
+                System.out.print(val + " ")
             }
         }
     }
